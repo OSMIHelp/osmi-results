@@ -56,6 +56,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a class="btn btn-link navbar-btn" href="https://survey.osmihelp.org">Survey</a></li>
                 <li><a class="btn btn-link navbar-btn" href="#talks">Talks</a></li>
                 <li><a class="btn btn-link navbar-btn" href="#about">About OSMI</a></li>
                 <li><a class="btn btn-link navbar-btn" href="#resources">Resources</a></li>
@@ -85,7 +86,7 @@
             <div class="list-group">
                 <a class="list-group-item" href="https://osmihelp.org/survey2016/" target="_blank">
                     <h4 class="resource-title">
-                        <i class="fa fa-chevron-circle-right fa-fw"></i> Mental Health in Tech Survey 2016
+                        <i class="fa fa-chevron-circle-right fa-fw"></i> Take the Mental Health in Tech Survey 2016
                     </h4>
                     <p class="resource-description">
                         <h5>How Will This Data Be Used?</h5>
@@ -100,7 +101,7 @@
         </div>
         <div class="col-sm-8 col-xs-12 col-content">
             <div class="list-group">
-                <a class="list-group-item" href="https://surveyosmihelp.org/results/">
+                <a class="list-group-item" href="https://survey.osmihelp.org/results">
                     <h4 class="resource-title">
                         <i class="fa fa-chevron-circle-right fa-fw"></i> 2016 Survey Results
                     </h4>
