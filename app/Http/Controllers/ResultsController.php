@@ -47,14 +47,15 @@ class ResultsController extends Controller
         $data['Is your primary role within your company related to tech/IT?'] = $this->yourPrimaryRole();
         $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->employerProvidesMentalHealth();
         $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->numberOfEmployees();
+        $data['highlight_one'] = $this->peopleInUsDontKnowIfTheyHaveCoverageButHaveBeenOrSuspectMentalCondition();
 
-        return view('results.index', [$data]);
+        return view('results.index', $data);
     }
 
     // people in the US, don't know if they have mental health care coverage, but have been or suspect they have a mental health condition
     public function peopleInUsDontKnowIfTheyHaveCoverageButHaveBeenOrSuspectMentalCondition()
     {
-        $results['Query'] = 'people in the US, don\'t know if they have mental health care coverage, but have been or suspect they have a mental health condition';
+//        $results['Query'] = 'people in the US, don\'t know if they have mental health care coverage, but have been or suspect they have a mental health condition';
 
         $count = $this->result
             ->where('5', 'I don\'t know') // don't know if they have MH coverage
@@ -66,8 +67,8 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'United States of America')->count();
         $percent = ($count / $people) * 100;
-        $results['United States of America']['All from Country'] = $people;
-        $results['United States of America']['Matched Our Query'] = $count;
+        $results['United States of America']['all_from_country'] = $people;
+        $results['United States of America']['matched_query'] = $count;
         $results['United States of America']['percent'] = number_format($percent, 2) .  '%';
 
         $count = $this->result
@@ -80,8 +81,8 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'United Kingdom')->count();
         $percent = ($count / $people) * 100;
-        $results['United Kingdom']['All from Country'] = $people;
-        $results['United Kingdom']['Matched Our Query'] = $count;
+        $results['United Kingdom']['all_from_country'] = $people;
+        $results['United Kingdom']['matched_query'] = $count;
         $results['United Kingdom']['percent'] = number_format($percent, 2) .  '%';
 
         $count = $this->result
@@ -94,8 +95,8 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'Canada')->count();
         $percent = ($count / $people) * 100;
-        $results['Canada']['All from Country'] = $people;
-        $results['Canada']['Matched Our Query'] = $count;
+        $results['Canada']['all_from_country'] = $people;
+        $results['Canada']['matched_query'] = $count;
         $results['Canada']['percent'] = number_format($percent, 2) .  '%';
 
         $count = $this->result
@@ -108,11 +109,11 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'Australia')->count();
         $percent = ($count / $people) * 100;
-        $results['Australia']['All from Country'] = $people;
-        $results['Australia']['Matched Our Query'] = $count;
+        $results['Australia']['all_from_country'] = $people;
+        $results['Australia']['matched_query'] = $count;
         $results['Australia']['percent'] = number_format($percent, 2) .  '%';
 
-        return json_encode($results);
+        return $results;
     }
 
     public function getSelfEmployed()

@@ -10,37 +10,39 @@
     </div>
     <div class="row">
         <div class="col-sm-4 col-quote">
-            This survey intends to collect information about mental health in the IT/tech community.
-            All responses are anonymous, and no identifying information will be collected or stored.
+            Selected data parsed from the responses of the 2016 Survey.
             If you have questions or comments about this survey, please email <a href="mailto:survey@osmihelp.org">survey@osmihelp.org</a>
         </div>
         <div class="col-sm-8 col-xs-12 col-content">
             <div class="list-group">
-                <a class="list-group-item" href="https://osmihelp.org/survey2016/" target="_blank">
                     <h4 class="resource-title">
-                        <i class="fa fa-chevron-circle-right fa-fw"></i> Take the Mental Health in Tech Survey 2016
-                    </h4>
-                    <h5>How Will This Data Be Used?</h5>
-                    <p class="resource-description">
-                        We are interested in gauging how mental health is viewed within the tech/IT workplace,
-                        and the prevalence of certain mental health disorders within the tech industry.
-                        The Open Sourcing Mental Illness team of volunteers will use this data to drive our work in raising
-                        awareness and improving conditions for those with mental health disorders in the IT workplace.
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-sm-8 col-xs-12 col-content">
-            <div class="list-group">
-                <a class="list-group-item" href="https://survey.osmihelp.org/results">
-                    <h4 class="resource-title">
-                        <i class="fa fa-chevron-circle-right fa-fw"></i> 2016 Survey Results
+                        <i class="fa fa-chevron-circle-right fa-fw"></i>
+                        People don't know if they have mental health care coverage,
+                        but have been or suspect they have a mental health condition
                     </h4>
                     <p class="resource-description">
-                        View results and data we have gathered from the 2016 Mental Health in Tech Survey.
+                        <ul>
+                            @foreach($highlight_one as $country => $results)
+                            <li>
+                                {{ $results['percent'] }} in {{ $country }} ({{ $results['matched_query'] }}
+                                of {{ $results['all_from_country'] }} responses)
+                            </li>
+                            @endforeach
+                        </ul>
                     </p>
-                </a>
             </div>
         </div>
+        {{--<div class="col-sm-8 col-xs-12 col-content">--}}
+            {{--<div class="list-group">--}}
+                {{--<a class="list-group-item" href="https://survey.osmihelp.org/results">--}}
+                    {{--<h4 class="resource-title">--}}
+                        {{--<i class="fa fa-chevron-circle-right fa-fw"></i> 2016 Survey Results--}}
+                    {{--</h4>--}}
+                    {{--<p class="resource-description">--}}
+                        {{--View results and data we have gathered from the 2016 Mental Health in Tech Survey.--}}
+                    {{--</p>--}}
+                {{--</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 @endsection
