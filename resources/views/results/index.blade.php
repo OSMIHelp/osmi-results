@@ -1,11 +1,11 @@
 @extends('layouts.index')
 
-@section('title', 'Mental Health in Tech Survey')
+@section('title', 'Mental Health in Tech Survey Results')
 
 @section('content')
     <div class="row">
         <div class="col-xs-12">
-            <h2 class="content-header" id="resources">Survey</h2>
+            <h2 class="content-header" id="resources">Survey Results</h2>
         </div>
     </div>
     <div class="row">

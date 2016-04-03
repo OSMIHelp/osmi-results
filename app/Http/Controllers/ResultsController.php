@@ -48,7 +48,7 @@ class ResultsController extends Controller
         $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->employerProvidesMentalHealth();
         $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->numberOfEmployees();
 
-        return json_encode($data);
+        return view('results.index', [$data]);
     }
 
     // people in the US, don't know if they have mental health care coverage, but have been or suspect they have a mental health condition
