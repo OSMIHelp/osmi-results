@@ -42,9 +42,9 @@ class ResultsController extends Controller
 
     public function queryResults()
     {
-        $data['Are you self-employed?'] = $this->getSelfEmployed();
-        $data['How many employees does your company or organization have?'] = $this->numberOfEmployees();
-        $data['Is your primary role within your company related to tech/IT?'] = $this->yourPrimaryRole();
+//        $data['Are you self-employed?'] = $this->getSelfEmployed();
+//        $data['How many employees does your company or organization have?'] = $this->numberOfEmployees();
+//        $data['Is your primary role within your company related to tech/IT?'] = $this->yourPrimaryRole();
         $data['employer_provides_mental_health_benefits'] = $this->employerProvidesMentalHealth();
         $data['number_of_employeers'] = $this->numberOfEmployees();
         $data['highlight_one'] = $this->peopleInUsDontKnowIfTheyHaveCoverageButHaveBeenOrSuspectMentalCondition();
@@ -236,33 +236,39 @@ class ResultsController extends Controller
         return $results;
     }
 
+    public function _employerProvidesMentalHealthByCountry($country)
+    {
+        $yes = $this->result->where('5', 'Yes')->where('94', $country)->count();
+        $dont_know = $this->result->where('5', 'I don\'t know')->where('94', $country)->count();
+        $no = $this->result->where('5', 'No')->where('94', $country)->count();
+        $na = $this->result->where('5', 'Not eligible for coverage / N/A')->where('94', $country)->count();
+        $responses = $yes + $dont_know + $no + $na;
+
+        $results['Yes'] = $yes . ' (' . number_format(($yes / $responses) * 100, 2) . '%)';
+        $results['Don\'t Know'] = $dont_know . ' (' . number_format(($dont_know / $responses) * 100, 2) . '%)';
+        $results['No'] = $no . ' (' . number_format(($no / $responses) * 100, 2) . '%)';
+        $results['Not eligible for coverage / N/A'] = $na . ' (' . number_format(($na / $responses) * 100, 2) . '%)';
+
+        return $results;
+    }
     // Does your employer provide mental health benefits as part of healthcare coverage
     public function employerProvidesMentalHealth()
     {
-        $results['All']['Yes'] = $this->result->where('5', 'Yes')->count();
-        $results['All']['Don\'t Know'] = $this->result->where('5', 'I don\'t know')->count();
-        $results['All']['No'] = $this->result->where('5', 'No')->count();
-        $results['All']['Not eligible for coverage / N/A'] = $this->result->where('5', 'Not eligible for coverage / N/A')->count();
+        $yes = $this->result->where('5', 'Yes')->count();
+        $dont_know = $this->result->where('5', 'I don\'t know')->count();
+        $no = $this->result->where('5', 'No')->count();
+        $na = $this->result->where('5', 'Not eligible for coverage / N/A')->count();
+        $responses = $yes + $dont_know + $no + $na;
 
-        $results['United Kingdom']['Yes'] = $this->result->where('5', 'Yes')->where('94', 'United Kingdom')->count();
-        $results['United Kingdom']['Don\'t Know'] = $this->result->where('5', 'I don\'t know')->where('94', 'United Kingdom')->count();
-        $results['United Kingdom']['No'] = $this->result->where('5', 'No')->where('94', 'United Kingdom')->count();
-        $results['United Kingdom']['Not eligible for coverage / N/A'] = $this->result->where('5', 'Not eligible for coverage / N/A')->where('94', 'United Kingdom')->count();
+        $results['All']['Yes'] = $yes . ' (' . number_format(($yes / $responses) * 100, 2) . '%)';
+        $results['All']['Don\'t Know'] = $dont_know . ' (' . number_format(($dont_know / $responses) * 100, 2) . '%)';
+        $results['All']['No'] = $no . ' (' . number_format(($no / $responses) * 100, 2) . '%)';
+        $results['All']['Not eligible for coverage / N/A'] = $na . ' (' . number_format(($na / $responses) * 100, 2) . '%)';
 
-        $results['United States of America']['Yes'] = $this->result->where('5', 'Yes')->where('94', 'United States of America')->count();
-        $results['United States of America']['Don\'t Know'] = $this->result->where('5', 'I don\'t know')->where('94', 'United States of America')->count();
-        $results['United States of America']['No'] = $this->result->where('5', 'No')->where('94', 'United States of America')->count();
-        $results['United States of America']['Not eligible for coverage / N/A'] = $this->result->where('5', 'Not eligible for coverage / N/A')->where('94', 'United States of America')->count();
-
-        $results['Canada']['Yes'] = $this->result->where('5', 'Yes')->where('94', 'Canada')->count();
-        $results['Canada']['Don\'t Know'] = $this->result->where('5', 'I don\'t know')->where('94', 'Canada')->count();
-        $results['Canada']['No'] = $this->result->where('5', 'No')->where('94', 'Canada')->count();
-        $results['Canada']['Not eligible for coverage / N/A'] = $this->result->where('5', 'Not eligible for coverage / N/A')->where('94', 'Canada')->count();
-
-        $results['Australia']['Yes'] = $this->result->where('5', 'Yes')->where('94', 'Canada')->count();
-        $results['Australia']['Don\'t Know'] = $this->result->where('5', 'I don\'t know')->where('94', 'Canada')->count();
-        $results['Australia']['No'] = $this->result->where('5', 'No')->where('94', 'Canada')->count();
-        $results['Australia']['Not eligible for coverage / N/A'] = $this->result->where('5', 'Not eligible for coverage / N/A')->where('94', 'Canada')->count();
+        $results['United States of America'] = $this->_employerProvidesMentalHealthByCountry('United States of America');
+        $results['United Kingdom'] = $this->_employerProvidesMentalHealthByCountry('United Kingdom');
+        $results['Canada'] = $this->_employerProvidesMentalHealthByCountry('Canada');
+        $results['Australia'] = $this->_employerProvidesMentalHealthByCountry('Australia');
 
         return $results;
     }
