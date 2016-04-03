@@ -69,7 +69,7 @@
     </div><!-- /.container -->
 </nav>
 
-
+<script type="text/javascript" src="/js/app.js"></script>
 <div class="container content-container">
     @yield('content')
 </div>
@@ -80,7 +80,7 @@
 {{--<script src="/bower_components/vue/dist/vue.min.js"></script>--}}
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-strap/1.0.3/vue-strap.js"></script>--}}
 {{--<script type="text/javascript" src="/js/audio.min.js"></script>--}}
-{{--<script type="text/javascript" src="/js/app.js"></script>--}}
+
 
 </body>
 </html>

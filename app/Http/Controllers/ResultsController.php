@@ -45,8 +45,8 @@ class ResultsController extends Controller
         $data['Are you self-employed?'] = $this->getSelfEmployed();
         $data['How many employees does your company or organization have?'] = $this->numberOfEmployees();
         $data['Is your primary role within your company related to tech/IT?'] = $this->yourPrimaryRole();
-        $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->employerProvidesMentalHealth();
-        $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->numberOfEmployees();
+        $data['employer_provides_mental_health_benefits'] = $this->employerProvidesMentalHealth();
+        $data['number_of_employeers'] = $this->numberOfEmployees();
         $data['highlight_one'] = $this->peopleInUsDontKnowIfTheyHaveCoverageButHaveBeenOrSuspectMentalCondition();
         $data['highlight_two'] = $this->peopleWhoHaveMHIssueThatHaveNotSoughtTreatment();
 

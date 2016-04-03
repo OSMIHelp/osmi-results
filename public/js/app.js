@@ -12215,6 +12215,14 @@ require('bootstrap-sass');
 
 $(document).ready(function () {
     // console.log($.fn.tooltip.Constructor.VERSION);
+
+    $('a.list-group-item').click(function () {
+        if ($(this).children('.answer').hasClass('hidden')) {
+            $(this).children('.answer').removeClass('hidden').addClass('visible');
+        } else {
+            $(this).children('.answer').removeClass('visible').addClass('hidden');
+        }
+    });
 });
 
 },{"bootstrap-sass":1,"jquery":2}]},{},[3]);

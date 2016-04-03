@@ -10026,4 +10026,7 @@ this flexbox stuff is so we can have nicely aligned sponsor logos
 .footer-container li a {
   color: #e68d8d; }
 
+.hidden {
+  display: none; }
+
 /*# sourceMappingURL=app.css.map */
