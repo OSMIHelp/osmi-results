@@ -88,9 +88,8 @@
                     <h4 class="resource-title">
                         <i class="fa fa-chevron-circle-right fa-fw"></i> Take the Mental Health in Tech Survey 2016
                     </h4>
+                    <h5>How Will This Data Be Used?</h5>
                     <p class="resource-description">
-                        <h5>How Will This Data Be Used?</h5>
-
                         We are interested in gauging how mental health is viewed within the tech/IT workplace,
                         and the prevalence of certain mental health disorders within the tech industry.
                         The Open Sourcing Mental Illness team of volunteers will use this data to drive our work in raising
