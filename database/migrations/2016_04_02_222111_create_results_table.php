@@ -1,0 +1,143 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateResultsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('results', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('1');
+            $table->text('2');
+            $table->text('3');
+            $table->text('4');
+            $table->text('5');
+            $table->text('6');
+            $table->text('7');
+            $table->text('8');
+            $table->text('9');
+            $table->text('10');
+            $table->text('11');
+            $table->text('12');
+            $table->text('13');
+            $table->text('14');
+            $table->text('15');
+            $table->text('16');
+            $table->text('17');
+            $table->text('18');
+            $table->text('19');
+            $table->text('20');
+            $table->text('21');
+            $table->text('22');
+            $table->text('23');
+            $table->text('24');
+            $table->text('25');
+            $table->text('26');
+            $table->text('27');
+            $table->text('28');
+            $table->text('29');
+            $table->text('30');
+            $table->text('31');
+            $table->text('32');
+            $table->text('33');
+            $table->text('34');
+            $table->text('35');
+            $table->text('36');
+            $table->text('37');
+            $table->text('38');
+            $table->text('39');
+            $table->text('40');
+            $table->text('41');
+            $table->text('42');
+            $table->text('43');
+            $table->text('44');
+            $table->text('45');
+            $table->text('46');
+            $table->text('47');
+            $table->text('48');
+            $table->text('49');
+            $table->text('50');
+            $table->text('51');
+            $table->text('52');
+            $table->text('53');
+            $table->text('54');
+            $table->text('55');
+            $table->text('56');
+            $table->text('57');
+            $table->text('58');
+            $table->text('59');
+            $table->text('60');
+            $table->text('61');
+            $table->text('62');
+            $table->text('63');
+            $table->text('64');
+            $table->text('65');
+            $table->text('66');
+            $table->text('67');
+            $table->text('68');
+            $table->text('69');
+            $table->text('70');
+            $table->text('71');
+            $table->text('72');
+            $table->text('73');
+            $table->text('74');
+            $table->text('75');
+            $table->text('76');
+            $table->text('77');
+            $table->text('78');
+            $table->text('79');
+            $table->text('80');
+            $table->text('81');
+            $table->text('82');
+            $table->text('83');
+            $table->text('84');
+            $table->text('85');
+            $table->text('86');
+            $table->text('87');
+            $table->text('88');
+            $table->text('89');
+            $table->text('90');
+            $table->text('91');
+            $table->text('92');
+            $table->text('93');
+            $table->text('94');
+            $table->text('95');
+            $table->text('96');
+            $table->text('97');
+            $table->text('98');
+            $table->text('99');
+            $table->text('100');
+            $table->text('101');
+            $table->text('102');
+            $table->text('103');
+            $table->text('104');
+            $table->text('105');
+            $table->text('106');
+            $table->text('107');
+            $table->text('108');
+            $table->text('109');
+            $table->text('110');
+            $table->text('111');
+            $table->text('112');
+            $table->text('113');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('results');
+    }
+}
