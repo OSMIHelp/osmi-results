@@ -48,6 +48,7 @@ class ResultsController extends Controller
         $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->employerProvidesMentalHealth();
         $data['Does your employer provide mental health benefits as part of healthcare coverage'] = $this->numberOfEmployees();
         $data['highlight_one'] = $this->peopleInUsDontKnowIfTheyHaveCoverageButHaveBeenOrSuspectMentalCondition();
+        $data['highlight_two'] = $this->peopleWhoHaveMHIssueThatHaveNotSoughtTreatment();
 
         return view('results.index', $data);
     }
@@ -265,10 +266,10 @@ class ResultsController extends Controller
 
         return $results;
     }
-    
+    // People who think they have a mental health issue but have not sought treatment
     public function peopleWhoHaveMHIssueThatHaveNotSoughtTreatment()
     {
-        $results['Query'] = 'People who have Mental Health Issue That Have Not Sought Treatment';
+//        $results['Query'] = 'People who have Mental Health Issue That Have Not Sought Treatment';
 
         $count = $this->result
             ->where('94', 'United States of America') // In US
@@ -280,8 +281,8 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'United States of America')->count();
         $percent = ($count / $people) * 100;
-        $results['United States of America']['All from Country'] = $people;
-        $results['United States of America']['Matched Our Query'] = $count;
+        $results['United States of America']['all_from_country'] = $people;
+        $results['United States of America']['matched_query'] = $count;
         $results['United States of America']['percent'] = number_format($percent, 2) .  '%';
 
         $count = $this->result
@@ -294,8 +295,8 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'United Kingdom')->count();
         $percent = ($count / $people) * 100;
-        $results['United Kingdom']['All from Country'] = $people;
-        $results['United Kingdom']['Matched Our Query'] = $count;
+        $results['United Kingdom']['all_from_country'] = $people;
+        $results['United Kingdom']['matched_query'] = $count;
         $results['United Kingdom']['percent'] = number_format($percent, 2) .  '%';
 
         $count = $this->result
@@ -308,8 +309,8 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'Canada')->count();
         $percent = ($count / $people) * 100;
-        $results['Canada']['All from Country'] = $people;
-        $results['Canada']['Matched Our Query'] = $count;
+        $results['Canada']['all_from_country'] = $people;
+        $results['Canada']['matched_query'] = $count;
         $results['Canada']['percent'] = number_format($percent, 2) .  '%';
 
         $count = $this->result
@@ -322,8 +323,8 @@ class ResultsController extends Controller
             ->count();
         $people = $this->result->where('94', 'Australia')->count();
         $percent = ($count / $people) * 100;
-        $results['Australia']['All from Country'] = $people;
-        $results['Australia']['Matched Our Query'] = $count;
+        $results['Australia']['all_from_country'] = $people;
+        $results['Australia']['matched_query'] = $count;
         $results['Australia']['percent'] = number_format($percent, 2) .  '%';
 
         return $results;
