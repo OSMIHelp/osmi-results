@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Result;
+use App\Http\Requests;
 use League\Csv\Reader;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 
 class ResultsController extends Controller
 {
@@ -21,7 +21,7 @@ class ResultsController extends Controller
         }
     }
 
-    public function index()
+    public function showQuestions()
     {
         $reader = Reader::createFromPath(storage_path() . '/../osmi-tech-survey-2016-report-20160402.csv');
         foreach ($reader as $index => $row) {

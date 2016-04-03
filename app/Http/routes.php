@@ -12,7 +12,11 @@
 */
 
 Route::get('/', [
-    'as' => 'home', 'uses' => 'ResultsController@index'
+    'as' => 'home', 'uses' => 'HomeController@index'
+]);
+
+Route::get('/questions', [
+    'as' => 'questions', 'uses' => 'ResultsController@showQuestions'
 ]);
 
 Route::get('/results', [
@@ -35,6 +39,6 @@ Route::get('/have-issue-not-sought-treatment', [
     'as' => 'have-issue-not-sought-treatment', 'uses' => 'ResultsController@peopleWhoHaveMHIssueThatHaveNotSoughtTreatment'
 ]);
 
-Route::get('/import', [
-    'as' => 'import', 'uses' => 'ResultsController@importResults'
-]);
+//Route::get('/import', [
+//    'as' => 'import', 'uses' => 'ResultsController@importResults'
+//]);
