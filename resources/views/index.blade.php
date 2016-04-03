@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-xs-12">
-            <h2 class="content-header" id="resources">Survey</h2>
+            <h2 class="content-header" id="resources">Mental Health in Tech Survey</h2>
         </div>
     </div>
     <div class="row">
@@ -32,7 +32,7 @@
         </div>
         <div class="col-sm-8 col-xs-12 col-content">
             <div class="list-group">
-                <a class="list-group-item" href="https://survey.osmihelp.org/results">
+                <a class="list-group-item" href="/results">
                     <h4 class="resource-title">
                         <i class="fa fa-chevron-circle-right fa-fw"></i> 2016 Survey Results
                     </h4>
